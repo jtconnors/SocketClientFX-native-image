@@ -13,7 +13,7 @@ It is typically used in conjucntion with one of two server-side JavaFX UI applic
 or
 ```MultiSocketServerFX``` https://github.com/jtconnors/MultiSocketServerFX
 
-This version of the source code is tagged ```1.0-JDK11```.  As its name suggests, it is specific to JDK 11 and can be built with the ```apache maven``` build lifecycle system.  It requires the **GraalVM Community Edition SDK **as well as the **native-image** component to operate properly.  As of the creation of this project, GraalVM 20.2.0 is the latest version.
+This version of the source code is tagged ```1.0-JDK11```.  As its name suggests, it is specific to JDK 11 and can be built with the ```apache maven``` build lifecycle system.  It requires the **GraalVM Community Edition SDK** as well as the **native-image** component to operate properly.  As of the creation of this project, GraalVM 20.2.0 is the latest version.
 
 This project works on MacOS or Linux..
 
