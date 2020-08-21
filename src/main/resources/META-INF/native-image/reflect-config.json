@@ -9,9 +9,6 @@
   "name":"com.jtconnors.socketclientfx.SocketClientFX"
 },
 {
-  "name":"javafx.geometry.Insets"
-},
-{
   "name":"javafx.scene.control.Button",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -32,6 +29,9 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
+  "name":"javafx.scene.image.Image"
+},
+{
   "name":"javafx.scene.layout.HBox",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -42,8 +42,5 @@
 {
   "name":"javafx.scene.layout.VBox",
   "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"javafx.scene.image.Image"
 }
 ]
