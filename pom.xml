@@ -14,7 +14,7 @@
         <mainClass>com.jtconnors.socketclientfx.SocketClientFX</mainClass>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-	<graalvm.version>20.2.0</graalvm.version>
+        <graalvm.version>20.2.0</graalvm.version>
     </properties>
 
     <organization>
@@ -55,9 +55,32 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    
+
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.4</version>
+                <configuration>
+                    <mainClass>${mainClass}</mainClass>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.gluonhq</groupId>
+                <artifactId>client-maven-plugin</artifactId>
+                <version>0.1.31</version>
+                <configuration>
+                    <reflectionList>
+                        <list>com.jtconnors.socketclientfx.FXMLDocumentController</list>
+                        <list>com.jtconnors.socketclientfx.SocketClientFX</list>
+                        <list>com.sun.javafx.tk.quantum.QuantumToolkit</list>
+                    </reflectionList>
+                    <mainClass>${mainClass}</mainClass>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -72,14 +95,14 @@
                         </fileset>
                         <fileset>
                             <directory>.</directory>
-                                <includes>
-                                    <include>*.deb</include>
-                                    <include>*.dmg</include>
-                                    <include>*.exe</include>
-                                    <include>*.msi</include>
-                                    <include>*.pkg</include>
-                                    <include>*.rpm</include>
-                                </includes>
+                            <includes>
+                                <include>*.deb</include>
+                                <include>*.dmg</include>
+                                <include>*.exe</include>
+                                <include>*.msi</include>
+                                <include>*.pkg</include>
+                                <include>*.rpm</include>
+                            </includes>
                         </fileset>
                         <fileset>
                             <directory>${project.artifactId}</directory>
@@ -134,7 +157,7 @@
                     </additionalClasspathElements>
                 </configuration>
             </plugin>
-			<plugin>
+            <plugin>
                 <groupId>org.graalvm.nativeimage</groupId>
                 <artifactId>native-image-maven-plugin</artifactId>
                 <version>${graalvm.version}</version>
@@ -150,7 +173,7 @@
                     <skip>false</skip>
                     <imageName>${project.artifactId}</imageName>
                     <buildArgs>
-                        --no-fallback
+                        --no-fallback --no-server --allow-incomplete-classpath
                     </buildArgs>
                 </configuration>
             </plugin>
