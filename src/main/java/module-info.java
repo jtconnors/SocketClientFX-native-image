@@ -12,6 +12,7 @@ module socketclientfx {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
+    requires java.management;
     exports com.jtconnors.socketclientfx;
     opens com.jtconnors.socketclientfx to javafx.fxml;
 }

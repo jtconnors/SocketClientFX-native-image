@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import java.lang.management.ManagementFactory;
 
 /**
  *
@@ -28,6 +29,13 @@ public class SocketClientFX extends Application {
         stage.setScene(scene);
         stage.setTitle(this.getClass().getSimpleName());
         stage.show();
+
+        /*
+         * Print out elasped time it took to get to this state in the program
+         */
+        long currentTime = System.currentTimeMillis();
+        long vmStartTime = ManagementFactory.getRuntimeMXBean().getStartTime();
+        System.out.println("Startup time: " + (currentTime - vmStartTime) + " milliseconds");
         
         stage.setOnCloseRequest((WindowEvent we) -> {
             System.exit(0);
