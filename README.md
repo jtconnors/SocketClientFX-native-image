@@ -26,14 +26,15 @@ Of note, the following maven goals can be executed:
    - ```mvn clean```
    - ```mvn dependency:copy-dependencies``` - to pull down dependent ```javafx``` and ```com.jtconnors.socket``` modules
    - ```mvn compile``` - to build the application
-   - ```mvn package``` - to create the ```SocketClientFX``` module as a jar file and build a native-image version of the application
+   - ```mvn package``` - to create the ```SocketClientFX``` modular application as a jar file
    - ```mvn exec:java``` to run the application
+   - ```mvn client:build``` - to build the ```SocketClientFX``` native image.  This is a compute intensive process.  When complete, the SocketClient executable will be found in the ```target/client/${arch}/``` directory where ${arch} is either ```x86_64-darwin``` (MacOS) or ```x86_64-linux``` (Linux).
    
 Furthermore, additional ```.sh```  files are provided in the ```sh/``` directoriy:
    - ```sh/run.sh``` - script file to run the application from the module path
    - ```sh/run-simplified.sh``` - alternative script file to run the application, determines main class from ```SocketClientFX``` module
    - ```sh/link.sh``` - creates a runtime image using the ```jlink``` utility
-   - ```sh/run-tracing-agent``` - script file to run the application with the GraalVM **reflection tracing agent**.  The merged output is placed in the ```src/main/resources/META_INF/native-image``` directory.
+
 
 Notes:
    - These scripts have a few available command-line options.  To print out
